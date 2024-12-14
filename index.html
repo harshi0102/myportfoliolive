@@ -65,6 +65,8 @@
             height: 100vh;
             text-align: center;
             flex-direction: column;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
         }
 
         .avatar {
@@ -77,11 +79,13 @@
         .title {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            animation: slideIn 1.5s ease-out;
         }
 
         .intro {
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
+            animation: fadeInText 2s ease-out;
         }
 
         .cta {
@@ -96,6 +100,36 @@
 
         .cta:hover {
             background-color: #45a049;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         /* Media Queries for Responsiveness */
@@ -138,9 +172,9 @@
     </header>
 
     <section id="home">
-        <img src="https://via.placeholder.com/150" alt="Your Profile Picture" class="avatar">
+        <img src="https://via.placeholder.com/150" alt="Your Name Avatar" class="avatar">
         <h1 class="title">Welcome to My Portfolio</h1>
-        <p class="intro">Hi, I'm John Doe, a passionate developer who loves building creative and user-friendly websites.</p>
+        <p class="intro">Hi, I'm John Doe, a passionate web developer with a love for creating user-friendly and visually appealing websites. I specialize in front-end development using modern tools and technologies like HTML, CSS, JavaScript, and React. I enjoy solving problems through code and bringing creative ideas to life.</p>
         <a href="about.html" class="cta">Learn more about me</a>
     </section>
 </body>
