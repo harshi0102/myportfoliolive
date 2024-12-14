@@ -4,7 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4caf50;
+        }
+
+        #about {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .avatar {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            margin-top: 20px;
+        }
+
+        .skills ul {
+            list-style-type: none;
+        }
+
+        .skills ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1024px) {
+            #about {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #about {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,22 +102,19 @@
     </header>
 
     <section id="about">
+        <img src="https://via.placeholder.com/150" alt="Your Photo" class="avatar">
         <h1>About Me</h1>
-        <img src="images/avatar.jpg" alt="Avatar" class="avatar">
-        <p>Hello, I am [Your Name]. I am a web developer passionate about creating innovative and user-friendly websites. I have experience with front-end and back-end development, including HTML, CSS, JavaScript, and more.</p>
-        <h2>Skills:</h2>
-        <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>React, Node.js</li>
-            <li>Git, GitHub</li>
-            <li>Python, Django</li>
-        </ul>
+        <p>Hi, I'm [Your Name], a passionate web developer focused on creating interactive and visually appealing web applications.</p>
+        
+        <div class="skills">
+            <h3>Skills:</h3>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React, Node.js</li>
+                <li>Git, GitHub</li>
+                <li>CSS Grid, Flexbox</li>
+            </ul>
+        </div>
     </section>
-
-    <footer>
-        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
-    </footer>
-
-    <script src="js/script.js"></script>
 </body>
 </html>

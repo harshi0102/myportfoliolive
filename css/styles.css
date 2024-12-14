@@ -17,16 +17,36 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    flex-direction: column;  /* Stack links vertically */
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 80px; /* Adjust as needed */
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    display: none;  /* Initially hidden */
 }
+nav ul.active {
+    display: block;  /* Show when active */
+}
+
 
 nav ul li {
-    margin: 0 1rem;
+    text-align: center;
 }
-
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: 500;
+    display: block;
+    padding: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #4caf50;
 }
 
 section {
@@ -232,5 +252,19 @@ footer {
 
     .cta {
         padding: 0.5rem 1.2rem;
+    }
+}
+@media (max-width: 1024px) {
+    /* Show the hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul.active {
+        display: block;  /* Make the menu vertical */
+    }
+
+    nav ul {
+        display: none;  /* Ensure it is hidden by default */
     }
 }
