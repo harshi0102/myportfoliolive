@@ -5,6 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and general styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4caf50;
+        }
+
+        /* Home Section */
+        #home {
+            background: linear-gradient(135deg, #6e7a7f, #4b4d58);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 2s ease-out;
+            flex-direction: column; /* Adjust layout to column for avatar and text */
+        }
+
+        #home .content {
+            text-align: center;
+            padding: 2rem;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: bounceIn 1.5s ease-out forwards; /* Updated animation */
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
+        .cta {
+            background-color: #4caf50;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .avatar-container {
+            position: relative;
+            animation: avatarZoomIn 2.5s ease-in-out;
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+
+        .avatar {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes avatarZoomIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Bounce animation for title */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .intro {
+                font-size: 1rem;
+            }
+
+            #home {
+                height: 80vh;
+            }
+
+            .cta {
+                padding: 0.6rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .intro {
+                font-size: 0.9rem;
+            }
+
+            #home {
+                height: 70vh;
+            }
+
+            .cta {
+                padding: 0.5rem 1.2rem;
+            }
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -19,15 +226,34 @@
     </header>
 
     <section id="home">
-        <h1>Welcome to My Portfolio!</h1>
-        <p>Hello, I'm [Your Name], a passionate developer!</p>
-        <p><a href="about.html">Learn more about me</a></p>
+        <div class="avatar-container">
+            <!-- Placeholder image if you don't have an avatar yet -->
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="content">
+            <h1 class="title">Welcome to My Portfolio</h1>
+            <p class="intro">
+                Hi, I'm [Your Name], a passionate developer who loves building creative and user-friendly websites.
+            </p>
+            <p><a href="about.html" class="cta">Learn more about me</a></p>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 [Your Name]. All rights reserved.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Example of smooth scrolling for navigation links
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
