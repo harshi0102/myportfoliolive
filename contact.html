@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <meta name="description" content="Contact us for inquiries and feedback.">
+    <meta name="keywords" content="contact, form, message, feedback">
+    <title>Contact Us</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,26 +17,34 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
+            background-color: #f4f7fa;
+            color: #444;
+            line-height: 1.7;
+            letter-spacing: 0.5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
         }
 
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 100%;
+            background-color: #1a1a2e;
+            padding: 1rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 1.5rem;
+            justify-content: center;
+            gap: 2rem;
         }
 
         nav ul li {
@@ -43,104 +54,191 @@
         nav ul li a {
             color: white;
             text-decoration: none;
+            font-size: 1.1rem;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #4caf50;
+            color: #3498db;
         }
 
-        .contact-form {
-            padding: 2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
+        header {
+            text-align: center;
             padding: 1rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .contact-form button {
-            background-color: #4caf50;
             color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 2rem;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            border: 2px solid #ccc;
+            border-radius: 6px;
             font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-container input:focus,
+        .form-container textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 14px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2rem;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .contact-form button:hover {
-            background-color: #45a049;
+        .form-container button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
         }
 
-        /* Media Queries for Responsiveness */
-        @media (max-width: 1024px) {
-            .contact-form {
-                padding: 1rem;
+        .form-container .error {
+            color: red;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .thank-you-message {
+            display: none;
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @media (max-width: 480px) {
-            .contact-form {
-                padding: 1rem;
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
     </style>
 </head>
+
 <body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Contact Me</h1>
     </header>
 
-    <section class="contact-form">
-        <h1>Contact Me</h1>
-        <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+    <div class="form-container">
+        <div class="thank-you-message" id="thank-you-message">
+            Thank you for your message! We will get back to you soon.
+        </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <form id="contact-form" action="javascript:void(0)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your message" required></textarea>
 
             <button type="submit">Submit</button>
         </form>
-        <div id="thankYouMessage" style="display:none;">
-            <h2>Thank you for your message!</h2>
-        </div>
-    </section>
+
+        <div class="error" id="error-message"></div>
+    </div>
 
     <script>
-        // Form validation
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-            if (name && email && message) {
-                document.getElementById('contactForm').style.display = 'none';
-                document.getElementById('thankYouMessage').style.display = 'block';
+            // Validate email using a regular expression
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            let errorMessage = '';
+
+            if (!name || !email || !message) {
+                errorMessage = 'All fields are required.';
+            } else if (!emailRegex.test(email)) {
+                errorMessage = 'Please enter a valid email address.';
             }
+
+            if (errorMessage) {
+                document.getElementById('error-message').textContent = errorMessage;
+                return;
+            }
+
+            // If validation passes, save data to localStorage temporarily
+            localStorage.setItem('formData', JSON.stringify({ name, email, message }));
+
+            // Display Thank You message
+            document.getElementById('thank-you-message').style.display = 'block';
+
+            // Clear form after submission
+            document.getElementById('contact-form').reset();
+
+            // Hide the Thank You message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('thank-you-message').style.display = 'none';
+            }, 5000);
         });
     </script>
+
 </body>
+
 </html>

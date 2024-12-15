@@ -20,6 +20,34 @@
             line-height: 1.8;
             letter-spacing: 0.5px;
             overflow-x: hidden;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: white;
+            animation: slideInUp 1s ease-out;
+        }
+
+        @keyframes slideInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         header {
@@ -59,7 +87,22 @@
         section {
             padding: 4rem 2rem;
             text-align: center;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            animation: backgroundShift 10s ease infinite;
+        }
+
+        @keyframes backgroundShift {
+            0% {
+                background: linear-gradient(135deg, #3498db, #8e44ad);
+            }
+
+            50% {
+                background: linear-gradient(135deg, #8e44ad, #3498db);
+            }
+
+            100% {
+                background: linear-gradient(135deg, #3498db, #8e44ad);
+            }
         }
 
         .avatar {
@@ -68,6 +111,19 @@
             height: 150px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: scaleIn 1s ease-out;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .title {
@@ -76,6 +132,8 @@
             font-weight: 600;
             letter-spacing: 1px;
             margin-bottom: 1rem;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .intro {
@@ -84,11 +142,13 @@
             color: #555;
             margin-bottom: 2rem;
             line-height: 1.6;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .intro span {
             font-weight: 500;
-            color: #3498db;
+            color: white;
         }
 
         .skills-list {
@@ -97,6 +157,7 @@
             flex-wrap: wrap;
             gap: 2rem;
             margin-bottom: 3rem;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .skills-list li {
@@ -105,31 +166,33 @@
             padding: 0.8rem 1.5rem;
             border-radius: 30px;
             font-size: 1.1rem;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
+            list-style-type: none;
         }
 
         .skills-list li:hover {
             background-color: #2980b9;
+            transform: translateY(-5px);
         }
 
         .cta {
-            background-color: #f39c12;
+            background-color: red;
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 25px;
             text-decoration: none;
             font-weight: 500;
             transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .cta:hover {
-            background-color: #f1c40f;
+            background-color: #e74c3c;
             transform: scale(1.05);
         }
 
         /* Media Queries for Responsiveness */
         @media (max-width: 1024px) {
-            /* Laptop & Tablet */
             .title {
                 font-size: 2rem;
             }
@@ -148,7 +211,6 @@
         }
 
         @media (max-width: 768px) {
-            /* Tablet Portrait */
             .title {
                 font-size: 1.8rem;
             }
@@ -172,7 +234,6 @@
         }
 
         @media (max-width: 480px) {
-            /* Mobile */
             .title {
                 font-size: 1.5rem;
             }
@@ -192,7 +253,6 @@
         }
 
         @media (max-width: 375px) {
-            /* Small Mobile */
             .title {
                 font-size: 1.3rem;
             }
