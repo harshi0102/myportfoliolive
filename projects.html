@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Showcasing my web development projects including Spotify, Weather App, WordPress Website, SpaceHub, and AwesomeBooks.">
+    <meta name="keywords" content="web development, JavaScript, React, WordPress, HTML, CSS, portfolio">
     <title>Projects</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Georgia&display=swap" rel="stylesheet">
     <style>
@@ -15,16 +17,21 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.8;
+            background-color: #f4f7fa;
+            color: #444;
+            line-height: 1.7;
             letter-spacing: 0.5px;
+            scroll-behavior: smooth;
         }
 
         header {
             background-color: #1a1a2e;
             color: white;
-            padding: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav {
@@ -36,7 +43,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 1.5rem;
+            gap: 2.5rem;
         }
 
         nav ul li {
@@ -57,51 +64,74 @@
 
         section {
             padding: 4rem 2rem;
-            background-color: #ffffff;
+            background: linear-gradient(45deg, #f0f4f8, #ffffff, #e4e9f2);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
             text-align: center;
         }
 
         h1 {
             font-family: 'Georgia', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
             padding: 0 1rem;
         }
 
         .project-card {
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease-in-out;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .project-card.show {
+            opacity: 1;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
 
         .project-image img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            border-bottom: 3px solid #f0f4f8;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            loading: lazy;
+        }
+
+        .project-image:hover img {
+            transform: scale(1.05);
+            filter: brightness(90%);
         }
 
         .project-info {
             padding: 1.5rem;
             text-align: left;
+            flex-grow: 1;
         }
 
         .project-title {
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 500;
             margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .project-description {
@@ -110,99 +140,88 @@
             margin-bottom: 1.5rem;
         }
 
-        .project-links a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+        .project-links {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
         }
 
-        .project-links a:hover {
-            color: #2980b9;
-        }
-
-        /* Button Style */
         .view-code-btn {
-            display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 1rem;
             font-weight: 500;
             text-transform: uppercase;
-            background-color: #3498db;
+            background: linear-gradient(145deg, #3498db, #2980b9);
             color: #fff;
             border: none;
             border-radius: 5px;
-            text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .view-code-btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-5px);
-        }
-
-        .view-code-btn:focus {
-            outline: none;
+            background: linear-gradient(145deg, #2980b9, #3498db);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
         /* Media Queries for Responsiveness */
         @media (max-width: 1024px) {
-            /* Tablet & Laptop */
             .projects-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-
-            .project-card {
-                padding: 1.2rem;
-            }
-
-            .project-title {
-                font-size: 1.4rem;
-            }
-
-            .project-description {
-                font-size: 1rem;
             }
         }
 
         @media (max-width: 768px) {
-            /* Tablet Portrait */
             .projects-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .project-card {
-                padding: 1rem;
-            }
-
-            .project-title {
-                font-size: 1.3rem;
-            }
-
-            .project-description {
-                font-size: 0.9rem;
             }
         }
 
         @media (max-width: 480px) {
-            /* Mobile */
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .project-card {
-                padding: 0.8rem;
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
             }
 
-            .project-title {
-                font-size: 1.2rem;
+            50% {
+                background-position: 100% 50%;
             }
 
-            .project-description {
-                font-size: 0.9rem;
+            100% {
+                background-position: 0% 50%;
             }
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-to-top:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
@@ -231,11 +250,13 @@
                     <h2 class="project-title">Spotify Web App</h2>
                     <p class="project-description">This project is a Spotify-inspired web application that allows users to browse and reserve their desired music tracks. The app integrates with the Spotify Web API to fetch music tracks, albums, and playlists. The application provides a smooth and interactive user experience, making use of JavaScript for handling dynamic content updates and API calls.</p>
                     <div class="project-links">
-                        <a href="https://github.com/harshi0102/JS-Capstone-Project" target="_blank">
-                            <button class="view-code-btn">View Code</button>
-                        </a>
+                      
                     </div>
                 </div>
+                <a href="https://github.com/harshi0102/JS-Capstone-Project" target="_blank">
+                
+                <button class="view-code-btn">View Code</button>
+</a>
             </div>
 
             <!-- Project 2 -->
@@ -247,14 +268,16 @@
                     <h2 class="project-title">World Weather App</h2>
                     <p class="project-description">The World Weather App is a single-page application (SPA) built with HTML, CSS, JS, React.js, and Redux. It allows users to search for countries and view real-time weather data, including temperature, humidity, wind speed, and weather conditions. The app fetches data from a weather API, offering a dynamic and user-friendly experience with centralized state management using Redux.</p>
                     <div class="project-links">
-                        <a href="https://github.com/harshi0102/react-redux-capstone" target="_blank">
-                            <button class="view-code-btn">View Code</button>
-                        </a>
+                       
                     </div>
                 </div>
+                <a href="https://github.com/harshi0102/react-redux-capstone" target="_blank">
+                
+                <button class="view-code-btn">View Code</button>
+</a>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Add more projects here as required -->
             <div class="project-card">
                 <div class="project-image">
                     <img src="https://myportfolio-website.info/wp-content/uploads/2024/10/Screenshot_10-768x306.png" alt="WordPress Website Screenshot">
@@ -263,11 +286,12 @@
                     <h2 class="project-title">Customized WordPress Website</h2>
                     <p class="project-description">This project involves a WordPress website built using a customized theme. It provides a unique and tailored design to meet specific requirements. The website's theme is developed from scratch or heavily customized to align with the client’s branding, user experience needs, and functionality goals.</p>
                     <div class="project-links">
-                        <a href="https://github.com/username/project3" target="_blank">
-                            <button class="view-code-btn">View Website</button>
-                        </a>
+                        
                     </div>
                 </div>
+                <a href="https://arturorodriguezart.com/" target="_blank">
+                <button class="view-code-btn">View Website</button></a>
+
             </div>
 
             <!-- Project 4 -->
@@ -279,11 +303,13 @@
                     <h2 class="project-title">SpaceHub</h2>
                     <p class="project-description">SpaceHub is a dynamic web application developed using React.js and Redux to serve as an online platform for a company that offers commercial and scientific space travel services. The application allows users to explore and book space missions, including commercial space travel and scientific research expeditions.</p>
                     <div class="project-links">
-                        <a href="https://github.com/harshi0102/space-hub" target="_blank">
-                            <button class="view-code-btn">View Code</button>
-                        </a>
+                       
                     </div>
                 </div>
+                <a href="https://github.com/harshi0102/space-hub" target="_blank">
+                
+                <button class="view-code-btn">View Code</button>
+</a>
             </div>
 
             <!-- Project 5 -->
@@ -294,16 +320,48 @@
                 <div class="project-info">
                     <h2 class="project-title">AwesomeBooks</h2>
                     <p class="project-description">AwesomeBooks is a simple yet functional web application that displays a list of books and allows users to add and remove books from the list. This project was developed using HTML, CSS, and JavaScript (ES6) to enhance the user experience with modern features like modular code and cleaner syntax.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/harshi0102/AwesomeBooks-ES6" target="_blank">
-                            <button class="view-code-btn">View Code</button>
-                        </a>
-                    </div>
+                    
                 </div>
+                <div class="project-links">
+                       
+                </div>
+                <a href="https://github.com/harshi0102/AwesomeBooks-ES6" target="_blank">
+                    <button class="view-code-btn">View Code</button>
+                </a>
+                
+
             </div>
 
         </div>
+        </div>
     </section>
+
+    <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Back to Top</button>
+
+    <script>
+        window.onload = function () {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, 300 * index);
+            });
+
+            // Show back-to-top button on scroll
+            window.onscroll = function () {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    document.querySelector('.back-to-top').style.display = 'block';
+                } else {
+                    document.querySelector('.back-to-top').style.display = 'none';
+                }
+            };
+        };
+
+        // Dark mode toggle
+        document.getElementById('dark-mode-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 
 </html>
