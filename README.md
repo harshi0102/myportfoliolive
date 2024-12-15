@@ -11,11 +11,13 @@ This is a personal portfolio website designed to showcase my skills, projects, a
 - [Technical Requirements](#technical-requirements)
 - [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [LiveDemo](#LiveDemo).
 
 ---
+### LiveDemo 
+https://harshi0102.github.io/myportfoliolive/
+
 
 ## Features
 
