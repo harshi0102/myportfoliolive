@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Georgia&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,19 +15,22 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f0f4f8;
             color: #333;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #333;
+            background-color: #1a1a2e;
             color: white;
             padding: 1rem;
         }
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
@@ -44,16 +48,18 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #4caf50;
+            color: #f39c12;
+            transform: translateY(-5px);
         }
 
-        #about {
-            padding: 2rem;
+        section {
+            padding: 4rem 2rem;
             text-align: center;
+            background-color: #ffffff;
         }
 
         .avatar {
@@ -61,34 +67,160 @@
             width: 150px;
             height: 150px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .skills {
-            margin-top: 20px;
+        .title {
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
         }
 
-        .skills ul {
-            list-style-type: none;
+        .intro {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
-        .skills ul li {
-            margin-bottom: 10px;
+        .intro span {
+            font-weight: 500;
+            color: #3498db;
+        }
+
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .skills-list li {
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+
+        .skills-list li:hover {
+            background-color: #2980b9;
+        }
+
+        .cta {
+            background-color: #f39c12;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #f1c40f;
+            transform: scale(1.05);
         }
 
         /* Media Queries for Responsiveness */
         @media (max-width: 1024px) {
-            #about {
-                padding: 1rem;
+            /* Laptop & Tablet */
+            .title {
+                font-size: 2rem;
+            }
+
+            .intro {
+                font-size: 1.1rem;
+            }
+
+            .skills-list {
+                gap: 1rem;
+            }
+
+            .cta {
+                padding: 0.6rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Tablet Portrait */
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .intro {
+                font-size: 1rem;
+            }
+
+            .skills-list {
+                gap: 1rem;
+            }
+
+            .cta {
+                padding: 0.6rem 1.5rem;
+            }
+
+            .avatar {
+                width: 120px;
+                height: 120px;
             }
         }
 
         @media (max-width: 480px) {
-            #about {
-                padding: 1rem;
+            /* Mobile */
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .intro {
+                font-size: 1rem;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .cta {
+                padding: 0.6rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            /* Small Mobile */
+            .title {
+                font-size: 1.3rem;
+            }
+
+            .intro {
+                font-size: 0.9rem;
+            }
+
+            .cta {
+                font-size: 0.9rem;
+                padding: 0.5rem 1.2rem;
+            }
+        }
+
+        /* Landscape and portrait orientation support */
+        @media (orientation: landscape) {
+            #home {
+                height: 100vh;
+            }
+
+            .avatar {
+                width: 180px;
+                height: 180px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -101,20 +233,41 @@
         </nav>
     </header>
 
-    <section id="about">
-        <img src="https://via.placeholder.com/150" alt="Your Photo" class="avatar">
-        <h1>About Me</h1>
-        <p>Hi, I'm [Your Name], a passionate web developer focused on creating interactive and visually appealing web applications.</p>
-        
-        <div class="skills">
-            <h3>Skills:</h3>
-            <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>React, Node.js</li>
-                <li>Git, GitHub</li>
-                <li>CSS Grid, Flexbox</li>
-            </ul>
-        </div>
+    <section>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7b3ArkB7Oocsco2nxglnEoCAupiepqWfpmQ&s" alt="Your Avatar" class="avatar">
+        <h1 class="title">About Me</h1>
+        <p class="intro">
+            Hi! I'm <span>Harshika Govind</span>, a passionate <span>full stack web developer</span> with a deep love for creating user-friendly and visually appealing websites. My journey into web development began with an interest in how websites work, and over time, it has evolved into a full-fledged passion for both the <span>front-end</span> and <span>back-end</span> aspects of web development. I specialize in full-stack development, which means I work on everything from designing intuitive user interfaces to building powerful back-end systems.
+        </p>
+        <p class="intro">
+            I have hands-on experience with modern technologies like <span>HTML5</span>, <span>CSS3</span>, <span>JavaScript</span>, <span>React.js</span>, <span>Ruby on Rails</span><span>, sql</span> <span>,Nextjs</span>  and <span>Wordpress</span> for crafting seamless and responsive front-end designs. On the back-end, I work with technologies such as <span>Node.js</span>, <span>Express.js</span>, and <span>MongoDB</span> to build robust, scalable applications that perform well and provide a smooth user experience.
+        </p>
+        <p class="intro">
+            My goal is to bring creative ideas to life by solving complex problems with simple, elegant code. I believe in the importance of continuous learning and always seek to stay updated with the latest trends and technologies in the field. Whether it's enhancing the performance of a website, ensuring a great user experience, or optimizing the application for mobile devices, I am always excited about the process of building something that users will love and interact with.
+        </p>
+        <p class="intro">
+            In addition to my technical skills, I am a firm believer in collaboration and teamwork. I enjoy working with like-minded individuals and sharing ideas to build something greater than the sum of its parts. I’m always open to new challenges, as they allow me to grow and push my boundaries as a developer.
+        </p>
+
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+            <li>NextJs</li>
+            <li>SQL Database</li>
+            <li>Ruby on Rails</li>
+            <li> Python</li>
+            <li>Redux</li>
+            <li>Git & GitHub</li>
+            <li>Responsive Design</li>
+            <li>UI/UX Design</li>
+        </ul>
+
+        <a href="contact.html" class="cta">Get in Touch</a>
     </section>
 </body>
+
 </html>
