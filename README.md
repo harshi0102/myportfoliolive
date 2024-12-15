@@ -1,4 +1,3 @@
-Sure! Below is a sample **README** file for your portfolio project. This README file outlines how to set up and run the project.
 
 ---
 
